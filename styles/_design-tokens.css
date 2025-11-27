@@ -1,0 +1,132 @@
+/* Design tokens and small component rules - single source of truth
+   Created: 2025-11-20
+*/
+:root{
+  /* Colors */
+  --color-primary: #1e66ff;
+  --color-accent: #ffb600;
+  --color-accent-dark: #ff8c00;
+  --color-neutral-dark: #0b1b2b;
+  --color-neutral-gray: #6b7280;
+  --color-white: #ffffff;
+
+  /* Type */
+  --font-family-base: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+
+  /* Accessibility */
+  --focus-ring: 3px solid rgba(30,102,255,0.18);
+}
+
+/* Base typographic improvements */
+html,body{font-family:var(--font-family-base);font-size:var(--font-size-base);color:var(--color-neutral-dark)}
+
+/* Better visible sub-heading styling (general) */
+.section-subtitle,
+.small-title,
+.tz-title-small {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ENSURING-specific (use this class on the h6 that contains 'ENSURING') */
+.heading-top-text{
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 2px; /* special-case for ENSURING */
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  opacity: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Nav: compact pill buttons, keyboard focus, remove square hover bug */
+.nav-main nav a,
+nav .nav-link,
+nav a.nav-link{
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background-color .18s ease, color .12s ease, box-shadow .12s ease;
+}
+
+/* Remove legacy square hover by overriding common selectors.
+   Use more specific hover selectors so we don't need !important. */
+.nav-main nav .nav-link:hover,
+nav .nav-link:hover,
+nav a.nav-link:hover{
+  border-radius: var(--radius-sm);
+  background-color: transparent; /* let more specific rules decide */
+}
+
+/* Active link */
+nav a.active,
+nav a:focus,
+nav a:focus-visible{
+  background-color: rgba(30,102,255,0.12);
+  color: var(--color-primary);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+}
+
+/* Shop CTA */
+.cta-shop{
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 6px 18px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  text-align: center;
+  min-width: 110px;
+}
+.cta-shop:hover,
+.cta-shop:focus{
+  background: #1557d1; /* darker */
+  color: var(--color-white);
+}
+
+/* Buttons */
+.btn{display:inline-block;padding:6px 12px;border-radius:var(--radius-sm);text-decoration:none;cursor:pointer}
+.btn-primary{background:var(--color-primary);color:var(--color-white);}
+.btn-cta{background:var(--color-primary);color:var(--color-white);padding:8px 18px;border-radius:var(--radius-pill)}
+
+/* Focus visible */
+:focus{outline: none}
+:focus-visible{outline: var(--focus-ring); outline-offset: 3px}
+
+/* Card grid helper - minimal, will be complemented by styles/styles.css changes */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+
+/* Ensure heading contrast in featured services (more specific, avoid !important)
+   Uses the page's `.fss-1` container so this overrides generic utilities without
+   relying on !important which can be hard to maintain. */
+.feautred-services-bg .fss-1 h6.heading-top-text{
+  color: var(--color-accent-dark);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Small utility */
+.u-uppercase{text-transform:uppercase}
+
+/* End of tokens */

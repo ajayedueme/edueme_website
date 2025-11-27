@@ -9,6 +9,16 @@ if (isset($_GET['pageid'])){
   $pageid = "";
 }
 
+// Compute a root-relative base URL so navigation links always resolve correctly
+// even when pages are rendered from subfolders. Example: '/mywebsite/'.
+if (!isset($baseUrl)) {
+  $baseUrl = rtrim(dirname($_SERVER['SCRIPT_NAME']), '\\/');
+  if ($baseUrl === '' || $baseUrl === '.') {
+    $baseUrl = '/';
+  } else {
+    $baseUrl = $baseUrl . '/';
+  }
+}
 
 ?>
 <div class="nav-main">
@@ -36,7 +46,7 @@ if (isset($_GET['pageid'])){
                     $liClass = $isActive ? 'active' : '';
                     $aClass = $isActive ? 'active' : '';
                     ?>
-                    <li class="<?php echo $liClass ?>"><a href="<?php echo $pagelink ?>" class="<?php echo $aClass ?>"><?php echo ucfirst($row_faq_nav->menuName) ?></a></li>
+                    <li class="<?php echo $liClass ?>"><a href="<?php echo $baseUrl . $pagelink ?>" class="<?php echo $aClass ?>"><?php echo ucfirst($row_faq_nav->menuName) ?></a></li>
 
                   <?php $i++; } ?>
                     <!-- <li><a href="About.html">About</a></li>
@@ -45,7 +55,7 @@ if (isset($_GET['pageid'])){
                     <li><a href="Events.html">Events</a></li>
                     <li><a href="Contact.html">Contact</a></li> -->
                     <li class="<?php echo ($page=='shop' ? 'active' : ''); ?> ctawrap">
-                      <a href="under-maintenance.html" class="nav-link <?php echo ($page=='shop' ? 'active' : ''); ?> cta-shop">Shop NOW</a>
+                      <a href="<?php echo $baseUrl; ?>under-maintenance.php" class="nav-link <?php echo ($page=='shop' ? 'active' : ''); ?> cta-shop">Shop NOW</a>
                     </li>
                   </ul>
                 </nav>

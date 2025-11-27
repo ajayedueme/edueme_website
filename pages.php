@@ -201,9 +201,11 @@ $sel_menu_get_row_fetch_res = mysqli_fetch_object($sel_menu_get_row_fetch);
     const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+if (myModal && myInput && typeof myModal.addEventListener === 'function') {
+  myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+  })
+}
     </script>
 </body>
 </html>

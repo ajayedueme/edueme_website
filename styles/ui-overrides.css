@@ -103,9 +103,10 @@ body{
 .button-2:hover,.green-color:hover{transform:translateY(-4px);box-shadow:0 22px 40px rgba(11,107,79,0.14)}
 
 /* Cards */
-.fss-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(12,30,30,0.04);transition:transform .18s}
-.fss-card img{max-width:64px;margin-bottom:8px}
-.fss-card:hover{transform:translateY(-6px)}
+.fss-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(12,30,30,0.04);transition:transform .28s cubic-bezier(0.22, 1, 0.36, 1);will-change:transform,opacity}
+.fss-card img{max-width:64px;margin-bottom:8px;transition:transform .32s cubic-bezier(0.22, 1, 0.36, 1),opacity .32s ease}
+/* remove legacy hover here; modern hover handled in styles.css to centralize card animations */
+/* .fss-card:hover{transform:translateY(-6px)} */
 
 /* Layout grids */
 .three-card-main{display:flex;gap:20px;flex-wrap:wrap}

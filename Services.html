@@ -495,13 +495,52 @@
 <script src="js/bootstrap.bundle.min.js"></script> 
 <script src="js/scripts.js"></script> 
 <script>
-
-    const myModal = document.getElementById('myModal')
+const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-    </script>
+if (myModal && myInput && typeof myModal.addEventListener === 'function') {
+  myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+  })
+}
+
+// Ensure service modals are direct children of <body> so Bootstrap's
+// fixed positioning works correctly even if page containers use transforms.
+document.addEventListener('DOMContentLoaded', function () {
+  ['popupone','popuptwo','popupthree','popupfour','popupfive','popupsix','popupseven','popupeight','popupnine'].forEach(function(id){
+    const el = document.getElementById(id);
+    if (el && el.parentNode !== document.body) {
+      document.body.appendChild(el);
+    }
+  });
+});
+</script>
+<script>
+// Debug helpers: log runtime status so you can inspect console when loading via http://localhost
+console.log('Services debug: DOM ready script loaded');
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('Services debug: DOMContentLoaded — checking modal elements and Bootstrap');
+  const ids = ['popupone','popuptwo','popupthree','popupfour','popupfive','popupsix','popupseven','popupeight','popupnine'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    console.log('Services debug: modal', id, 'found?', !!el, el ? ('parent=' + (el.parentNode && el.parentNode.tagName)) : '');
+  });
+
+  // Check Bootstrap presence (Bootstrap 5 exposes a Modal class in the bundle)
+  try {
+    console.log('Services debug: bootstrap modal available?', typeof bootstrap !== 'undefined' && typeof bootstrap.Modal === 'function');
+  } catch (e) {
+    console.log('Services debug: bootstrap check threw', e);
+  }
+});
+
+// Global error listener to catch exceptions that may differ when served via Apache
+window.addEventListener('error', function (ev) {
+  console.error('Services global error:', ev.message, 'at', ev.filename + ':' + ev.lineno + ':' + ev.colno, ev.error);
+});
+window.addEventListener('unhandledrejection', function (ev) {
+  console.error('Services unhandledrejection:', ev.reason);
+});
+</script>
 </body>
 </html>

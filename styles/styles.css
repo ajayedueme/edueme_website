@@ -74,8 +74,159 @@ box-shadow: 0px 0px 13px -4px rgba(0,210,149,0.61);
 .fss-card img{ height: 50px !important; width: auto !important;}
 
 .fss-card{background: #fff; -webkit-box-shadow: 0px 0px 10px 0px rgba(238,238,252,1);
--moz-box-shadow: 0px 0px 10px 0px rgba(238,238,252,1);
-box-shadow: 0px 0px 10px 0px rgba(238,238,252,1); padding: 20px; margin: 0px 0px 40px 0px}
+ -moz-box-shadow: 0px 0px 10px 0px rgba(238,238,252,1);
+ box-shadow: 0px 0px 10px 0px rgba(238,238,252,1); padding: 20px; margin: 0px 0px 40px 0px}
+
+/* Responsive grid for the four featured service cards */
+.feautred-services-bg .fss-2-subsection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+/* Flatten wrapper so cards become grid items (the markup nests .fss-2-1 wrappers)
+   display: contents lets the .fss-card elements participate in the grid. */
+.feautred-services-bg .fss-2-subsection .fss-2-1 {
+    display: contents;
+}
+
+/* Base card style (GPU-friendly transforms only) */
+.feautred-services-bg .fss-card,
+.feautred-services-bg .fss-2-subsection .fss-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: transform .28s cubic-bezier(0.22,1,0.36,1), box-shadow .28s cubic-bezier(0.22,1,0.36,1), background .28s ease;
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icon, title and link basic transition state */
+.feautred-services-bg .fss-card img { transition: transform .28s ease, opacity .28s ease; transform: translateY(0); opacity: 0.98; }
+.feautred-services-bg .fss-card h4 { transition: transform .28s ease, color .28s ease; transform: translateY(0); color: #111; }
+.feautred-services-bg .fss-card .link-2 { transition: transform .22s ease, opacity .22s ease; display:inline-block; }
+
+/* Hover - only on pointer devices */
+@media (hover: hover) and (pointer: fine) {
+    .feautred-services-bg .fss-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 18px 32px rgba(0,0,0,0.14);
+        background: rgba(30,102,255,0.03);
+    }
+
+    /* Icon lifts slightly */
+    .feautred-services-bg .fss-card:hover img { transform: translateY(-4px); opacity: 1; }
+
+    /* Title color + slight lift */
+    .feautred-services-bg .fss-card:hover h4 { color: #1e66ff; transform: translateY(-2px); }
+
+    /* Read more slides right a bit */
+    .feautred-services-bg .fss-card:hover .link-2 { transform: translateX(4px); }
+}
+
+/* Ensure no layout jitter: don't change margin on hover */
+.feautred-services-bg .fss-card { margin: 0; }
+
+/* Small-screen fallback: single column */
+@media screen and (max-width: 767px) {
+    .feautred-services-bg .fss-2-subsection { grid-template-columns: 1fr; }
+    .feautred-services-bg .fss-card { padding: 18px; }
+}
+
+/* New: feature-card interactive styles (adapted to existing markup) */
+.feautred-services-bg .fss-card.feature-card,
+.feature-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.25s ease;
+}
+
+/* subtle radial glow */
+.feautred-services-bg .fss-card.feature-card::before,
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(30,102,255,0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+/* icon/title/read-more transitions adapted to current markup */
+.feautred-services-bg .fss-card.feature-card img,
+.feature-card img { margin-bottom: 14px; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); }
+.feautred-services-bg .fss-card.feature-card h4,
+.feature-card h4 { transition: color 0.25s ease, transform 0.25s ease; }
+.feautred-services-bg .fss-card.feature-card p,
+.feature-card p { transition: opacity 0.25s ease; }
+.feautred-services-bg .fss-card.feature-card .link-2,
+.feature-card .link-2 { font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: color 0.25s ease, transform 0.25s ease; }
+
+/* Hover/interaction (high specificity to override legacy rules) */
+@media (hover: hover) and (pointer: fine) {
+    .feautred-services-bg .fss-card.feature-card:hover,
+    .feature-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 22px 40px rgba(15, 23, 42, 0.18);
+        background: #ffffff;
+    }
+
+    .feautred-services-bg .fss-card.feature-card:hover::before,
+    .feature-card:hover::before { opacity: 1; }
+
+    .feautred-services-bg .fss-card.feature-card:hover img,
+    .feature-card:hover img { transform: translateY(-4px); }
+
+    .feautred-services-bg .fss-card.feature-card:hover h4,
+    .feature-card:hover h4 { color: #1e66ff; transform: translateY(-2px); }
+
+    .feautred-services-bg .fss-card.feature-card:hover p,
+    .feature-card:hover p { opacity: 0.95; }
+
+    .feautred-services-bg .fss-card.feature-card:hover .link-2,
+    .feature-card:hover .link-2 { color: #1e66ff; transform: translateX(4px); }
+}
+
+/* Ensure legacy .fss-card:hover rules don't win for non-feature cards: only reset legacy hover on cards that are NOT .feature-card */
+.feautred-services-bg .fss-card:not(.feature-card):hover { transform: none; box-shadow: none; }
+
+/* Strongest override block placed at file end to ensure animations apply. */
+.feautred-services-bg .fss-card.feature-card {
+    will-change: transform, box-shadow, opacity;
+    -webkit-transform: translateZ(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .feautred-services-bg .fss-card.feature-card:hover,
+    .feature-card:hover {
+        transform: translateY(-14px) scale(1.03) !important;
+        box-shadow: 0 36px 80px rgba(15,23,42,0.2) !important;
+    }
+    .feautred-services-bg .fss-card.feature-card:hover img,
+    .feature-card:hover img { transform: translateY(-6px) !important; }
+    .feautred-services-bg .fss-card.feature-card:hover h4,
+    .feature-card:hover h4 { color: #1e66ff !important; transform: translateY(-3px) !important; }
+    .feautred-services-bg .fss-card.feature-card:hover .link-2,
+    .feature-card:hover .link-2 { transform: translateX(6px) !important; color: #1e66ff !important; }
+}
+
+
+
 
 .link-2{text-decoration: none;font-size: 14px; color: #000;}
 .link-2 img{ vertical-align: middle;height: 10px !important; width: auto;margin: 0px 0px 0px 5px}
@@ -753,8 +904,112 @@ box-shadow: 0px 0px 10px 0px rgba(238,238,252,1); padding: 20px; margin: 10px 10
     width: 48%;
         margin-bottom: 20px;
 }
-    .footer-2:last-child{ width: 100%}
+	.footer-2:last-child{ width: 100%}
 }
+
+
+/* Modern GPU-friendly card hover animations
+   Targets project-specific card classes and provides
+   a subtle, smooth lift + shadow using only transform/opacity.
+*/
+/* Base card styles for smoother transforms and better performance */
+.card, .fss-card, .three-card-1, .n-three-card-1, .fss-3-card, .blog-card-1, .courses-box-1, .c-three-card-1 {
+    transition: transform .28s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow .28s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .2s ease;
+    will-change: transform, box-shadow, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    border-radius: 10px;
+}
+
+/* Ensure inner content respects rounded corners when present */
+.card .card-inner, .fss-card .card-inner, .three-card-1 .card-inner, .fss-3-card .card-inner {
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+/* Neutral default shadow to reduce layout shift */
+.card, .fss-card, .three-card-1, .n-three-card-1 {
+    box-shadow: 0 6px 18px rgba(8,15,25,0.06);
+    border: 0;
+}
+
+/* Apply hover effects only on devices that support hover to avoid touch surprises */
+@media (hover: hover) and (pointer: fine) {
+    .card:hover, .fss-card:hover, .three-card-1:hover, .n-three-card-1:hover, .fss-3-card:hover, .blog-card-1:hover, .courses-box-1:hover, .c-three-card-1:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 22px 50px rgba(46, 218, 176, 0.12);
+        opacity: 1;
+    }
+}
+
+/* Keyboard accessibility: visible focus state */
+.card:focus-visible, .fss-card:focus-visible, .three-card-1:focus-visible, .n-three-card-1:focus-visible {
+    outline: 3px solid rgba(46, 218, 176, 0.18);
+    outline-offset: 4px;
+}
+
+/* Specific rules for featured-services cards to ensure layout & hover work as expected */
+.fss-2-subsection { display: flex; gap: 24px; align-items: flex-start; }
+.fss-2-subsection .fss-2-1 { display: grid; grid-template-columns: 1fr; gap: 20px; width: 45%; box-sizing: border-box; }
+
+.fss-card {
+    display: block;
+    width: 100%;
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(8,15,25,0.06);
+    transition: transform .28s cubic-bezier(0.215,0.61,0.355,1), box-shadow .28s cubic-bezier(0.215,0.61,0.355,1), opacity .2s ease;
+    will-change: transform, box-shadow, opacity;
+    cursor: default;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .fss-card:hover {
+        transform: translateY(-8px) scale(1.015);
+        box-shadow: 0 22px 50px rgba(46, 218, 176, 0.12);
+    }
+}
+
+/* Ensure images inside the card don't overflow and keep consistent sizing */
+.fss-card img { display: block; max-width: 56px; height: auto; margin-bottom: 12px; }
+
+/* Small screens: stack the two card columns into a single column */
+@media screen and (max-width: 830px) {
+    .fss-2-subsection { flex-direction: column; padding-left: 0; }
+    .fss-2-subsection .fss-2-1 { width: 100%; }
+}
+
+/* Stronger, higher-specificity card-as-button styles so these rules win
+   even when other CSS exists. Uses only transform & box-shadow for GPU
+   hardware-accelerated animation. */
+.feautred-services-bg .fss-2-subsection .fss-card {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .26s cubic-bezier(.22,.8,.28,1), box-shadow .26s cubic-bezier(.22,.8,.28,1), opacity .15s ease;
+    will-change: transform, box-shadow, opacity;
+    border-radius: 12px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .feautred-services-bg .fss-2-subsection .fss-card:hover {
+        transform: translateY(-12px) scale(1.035) !important;
+        box-shadow: 0 30px 80px rgba(46,218,176,0.14) !important;
+        opacity: 1 !important;
+    }
+    .feautred-services-bg .fss-2-subsection .fss-card:active {
+        transform: translateY(-3px) scale(.995) !important;
+        box-shadow: 0 12px 30px rgba(8,15,25,0.08) !important;
+    }
+}
+
+/* Make sure focus is visible for keyboard users */
+.feautred-services-bg .fss-2-subsection .fss-card:focus {
+    outline: none;
+    box-shadow: 0 30px 80px rgba(46,218,176,0.10), 0 0 0 4px rgba(46,218,176,0.06);
+}
+
 
 
 

@@ -341,9 +341,11 @@
     const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+if (myModal && myInput && typeof myModal.addEventListener === 'function') {
+  myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+  })
+}
     </script>
 </body>
 </html>

@@ -12,6 +12,7 @@ $res_sqlHomeImages =  mysqli_query($con,$sqlHomeImages);
 <title>EDUEME</title>
 <link rel="shortcut icon" href="images/fav.png">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles/_design-tokens.css">
 <link rel="stylesheet" href="styles/styles.css">
 <link rel="stylesheet" href="styles/navigation.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
@@ -103,7 +104,7 @@ $sel_menu_get_row_fetch_res_rs = mysqli_fetch_object($sel_menu_get_row_fetch_rs)
   <div class="wrapper">
     <div class="feautred-services-section">
       <div class="fss-1">
-        <h6>ensuring</h6>
+        <h6 class="heading-top-text">ensuring</h6>
         <h2>Feautred Services</h2>
         <?php echo stripslashes(html_entity_decode($sel_menu_get_row_fetch_res_rs->menuContent))  ?>
         <a href="#" class="button-2">Read more</a> </div>
@@ -120,7 +121,7 @@ $sel_menu_get_row_fetch_rs_eshort =  mysqli_query($con,$sel_menu_get_row_fetch_r
 while($sel_menu_get_row_fetch_res_rs_short = mysqli_fetch_object($sel_menu_get_row_fetch_rs_eshort)){
    ?>
 
-            <div class="fss-card"> <img src="uploades/<?php echo $sel_menu_get_row_fetch_res_rs_short->pageImage ?>" alt="Awesome Teachers">
+            <div class="fss-card feature-card"> <img src="uploades/<?php echo $sel_menu_get_row_fetch_res_rs_short->pageImage ?>" alt="Awesome Teachers">
               <h4><?php echo $sel_menu_get_row_fetch_res_rs_short->pageHeading ?>:</h4>
               <?php echo stripslashes(html_entity_decode($sel_menu_get_row_fetch_res_rs_short->txtMenuContentShort)) ?>
               <a href="pages.php?mid=4" class="link-2">Read more <img src="images/arrow-1.png" alt="arrow"></a> </div>
@@ -145,7 +146,7 @@ $num++;
               <h4>Global Certificate</h4>
               <p>Students gain a thorough understanding of the newest technology and industry best practises through our widely renowned certification programme in robotics and artificial intelligence. </p>
               <a href="Services.html" class="link-2">Read more <img src="images/arrow-1.png" alt="arrow"></a> </div>
-            <div class="fss-card"> <img src="images/business-knowledge-icon.png" alt="Business Knowledge">
+            <div class="fss-card feature-card"> <img src="images/business-knowledge-icon.png" alt="Business Knowledge">
               <h4>Business Knowledge</h4>
               <p>We can emphasize that our robotics education services provide children with a unique opportunity to gain hands-on knowledge by learning about the latest technologies..</p>
               <a href="Services.html" class="link-2">Read more <img src="images/arrow-1.png" alt="arrow"></a> </div>
