@@ -74,7 +74,7 @@ document.addEventListener('click', function(e) {
 	
 	var contact = e.target.closest && e.target.closest('.btn-contact');
 	if (contact) {
-		window.location.href = '/mywebsite/Contact.html';
+		window.location.href = 'Contact.html';
 		e.preventDefault();
 		return;
 	}

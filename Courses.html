@@ -30,8 +30,8 @@
     font-weight: 700;
 }
 .div.portfolio .filters {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin-top: 18px;
 }
 .div.portfolio .filters ul {
     padding: 0;
@@ -60,7 +60,8 @@
     width: calc(100% - 60px);
 }
 .div.portfolio .filters-content {
-    margin-top: 50px;
+  margin-top: 18px;
+  visibility: hidden; /* hide until Isotope finishes layout to prevent jumping */
 }
 .div.portfolio .filters-content .show {
     opacity: 1;
@@ -238,7 +239,7 @@
               
               
           </div>
-        </div><br><br><br>
+        </div>
       </div>
     </div>
   </div>
@@ -285,37 +286,54 @@
 <script src="js/bootstrap.bundle.min.js"></script> 
 <script src="js/scripts.js"></script> 
 <script>
-    $(window).load(function() {
-    $("#toppic_1").flexisel({
-        visibleItems: 4,
-        itemsToScroll: 1,
-        animationSpeed: 400,
-        infinite: false,
-        navigationTargetSelector: null,
-        autoPlay: {
-            enable: false,
-            interval: 5000,
-            pauseOnHover: true
-        },
-        responsiveBreakpoints: {
-            portrait: {
-                changePoint: 480,
-                visibleItems: 1,
-                itemsToScroll: 1
-            },
-            landscape: {
-                changePoint: 640,
-                visibleItems: 2,
-                itemsToScroll: 1
-            },
-            tablet: {
-                changePoint: 980,
-                visibleItems: 3,
-                itemsToScroll: 1
+    // Initialize flexisel and isotope only after all images/resources have loaded
+    $(window).on('load', function() {
+        // flexisel init (carousel)
+        if (typeof $.fn.flexisel === 'function') {
+          $("#toppic_1").flexisel({
+              visibleItems: 4,
+              itemsToScroll: 1,
+              animationSpeed: 400,
+              infinite: false,
+              navigationTargetSelector: null,
+              autoPlay: {
+                  enable: false,
+                  interval: 5000,
+                  pauseOnHover: true
+              },
+              responsiveBreakpoints: {
+                  portrait: { changePoint: 480, visibleItems: 1, itemsToScroll: 1 },
+                  landscape: { changePoint: 640, visibleItems: 2, itemsToScroll: 1 },
+                  tablet: { changePoint: 980, visibleItems: 3, itemsToScroll: 1 }
+              }
+          });
+        }
+
+        // Initialize isotope after load to avoid layout shifting when images load later
+        if (typeof $.fn.isotope === 'function') {
+          var $grid = $(".grid").isotope({
+            itemSelector: ".n-three-card-1",
+            percentPosition: true,
+            masonry: {
+              columnWidth: ".n-three-card-1"
             }
+          });
+
+          // show content after layout to prevent flicker
+          $(".filters-content").css('visibility','visible');
+
+          // wire up filter buttons
+          $('.filters ul li').on('click', function(){
+            $('.filters ul li').removeClass('active');
+            $(this).addClass('active');
+            var data = $(this).attr('data-filter');
+            $grid.isotope({ filter: data });
+          });
+        } else {
+          // fallback: if isotope not available, still reveal content
+          $(".filters-content").css('visibility','visible');
         }
     });
-});
 </script> 
 <script>
     $('.filters ul li').click(function(){

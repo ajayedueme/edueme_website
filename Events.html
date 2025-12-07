@@ -218,7 +218,7 @@
                   </div>
                   <div class="modal-footer">
                     <h5>Duration : 15 Days Programm, <br>
-                        Venue: Arka international School, Almasguda, BN Reddy, Hyderabad. TS</h5>
+                        Venue: Arka international school, Almasguda, BN Reddy, Hyderabad. TS</h5>
                   </div>
                 </div>
               </div>
@@ -242,7 +242,7 @@
                   </div>
                   <div class="modal-body">
                     <div class="popup-content">
-                        <h4>Name of the Event: Summer Camp – Robotics Workshop </h4>
+                        <h4>Name of the Event: Summer Camp - Robotics Workshop </h4>
                       <p>The main agenda of any workshop is to introduce a new skill or tech to the students and make them fascinated, drive them towards having a long journey in prospering the skill. In this short journey students will get introduced to may electronic component and way to comand them with basic coding skills. This introduction will help them to explore their creative thoughts. </p>
                       <div class="clear-fix"></div>
                       <h4>What a school / Student will Receive from Edueme </h4>
@@ -253,7 +253,7 @@
                             <li>In - Class sessions </li>
                             <li>Certifications </li>
                             <li>Tech Summits</li>
-                            <li>Expo's ( Pradarshan)</li>
+                            <li>Expo's (Pradarshan)</li>
                             <li>Intra School Competitions</li>
                             <li>Support in all the business days/hours. </li>
                         </ul>
@@ -337,8 +337,7 @@
 <script src="js/bootstrap.bundle.min.js"></script> 
 <script src="js/scripts.js"></script> 
 <script>
-
-    const myModal = document.getElementById('myModal')
+const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
 if (myModal && myInput && typeof myModal.addEventListener === 'function') {
@@ -346,6 +345,17 @@ if (myModal && myInput && typeof myModal.addEventListener === 'function') {
     myInput.focus()
   })
 }
-    </script>
+
+// Ensure event workshop modals are direct children of <body> so Bootstrap's
+// fixed positioning works correctly even if page containers use transforms.
+document.addEventListener('DOMContentLoaded', function () {
+  ['popupone','popuptwo','popupthree'].forEach(function(id){
+    const el = document.getElementById(id);
+    if (el && el.parentNode !== document.body) {
+      document.body.appendChild(el);
+    }
+  });
+});
+</script>
 </body>
 </html>

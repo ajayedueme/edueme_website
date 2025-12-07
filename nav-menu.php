@@ -27,11 +27,17 @@ if (!isset($baseUrl)) {
                   <ul>
                   <?php $i=1; while($row_faq_nav = mysqli_fetch_object($res_faq_nav)){?>
                     <?php
-                     if($row_faq_nav->pageCheck == '1'){
-                          $pagelink="pages.php?mid=$row_faq_nav->menuId";
-                    }else{
-                          $pagelink="$row_faq_nav->menuSulg?pageid=$row_faq_nav->menuId";
-                    }
+                      if($row_faq_nav->pageCheck == '1'){
+                       $pagelink="pages.php?mid=$row_faq_nav->menuId";
+                     }else{
+                       $pagelink="$row_faq_nav->menuSulg?pageid=$row_faq_nav->menuId";
+                     }
+
+                      // If this menu item is the 'Services' catalogue, link to the static
+                      // Services.html page so the service popups work correctly.
+                      if (strtolower(trim($row_faq_nav->menuName)) === 'services') {
+                      $pagelink = 'Services.html';
+                      }
                     // determine active state: by menuId/pageid, fallback to Home when no pageid,
                     // and also allow pages to set $page (e.g. $page='contact') to match menuName
                     $isActive = false;
