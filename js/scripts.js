@@ -61,10 +61,20 @@ window.onload = init();
 })();
 
 /* Tiny fallback: if nav/home or contact anchors lack usable hrefs, route to canonical pages.
-	 Only affects anchors with classes `nav-home` or `btn-contact` to avoid touching modals or other links. */
+ 	Only affects anchors with classes `nav-home` or `btn-contact` to avoid touching modals or other links. */
 (function(){
-	var HOME = CANONICAL_HOME;
-	var CONTACT = CANONICAL_CONTACT;
+	// Canonical URLs for JS fallbacks (defined near top to ensure availability)
+	var HOME = 'index.php?pageid=2';
+	var CONTACT = 'Contact.html';
+
+	function looksUnsafe(h){
+		if(!h) return false;
+		// treat file: scheme or any drive-letter absolute paths as unsafe
+		if (/^file:/i.test(h)) return true;
+		if (/^[A-Za-z]:[\\\/]/.test(h)) return true;
+		return false;
+	}
+
 	document.addEventListener('click', function(e){
 		try{
 			var a = e.target && e.target.closest && e.target.closest('a');
@@ -78,7 +88,7 @@ window.onload = init();
 			}
 			if(a.classList && a.classList.contains('nav-home')){
 				var href = a.getAttribute('href') || '';
-				if(!href || href.indexOf('C:/') !== -1 || href.indexOf('file:///') !== -1){
+				if(!href || looksUnsafe(href)){
 					e.preventDefault();
 					window.location.href = HOME;
 				}
@@ -86,7 +96,6 @@ window.onload = init();
 		}catch(err){/* noop */}
 	});
 })();
-
 /* Canonical URLs — keep in one place for JS fallbacks */
 var CANONICAL_HOME = 'index.php?pageid=2';
 var CANONICAL_CONTACT = 'Contact.html';
@@ -98,7 +107,7 @@ var CANONICAL_CONTACT = 'Contact.html';
 document.addEventListener('click', function(e) {
 	var demo = e.target.closest && e.target.closest('.btn-demo');
 	if (demo) {
-		window.open('https://wa.me/9059508050?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20robotics%20%2F%20AI%20classes.', '_blank');
+		window.open('https://wa.me/9059508050?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20AI%20and%20Robotics%20demo.', '_blank');
 		e.preventDefault();
 		return;
 	}
