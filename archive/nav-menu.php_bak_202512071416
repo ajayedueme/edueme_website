@@ -51,11 +51,6 @@ if (!isset($baseUrl)) {
 
                     $liClass = $isActive ? 'active' : '';
                     $aClass = $isActive ? 'active' : '';
-                    // Ensure Home always points to canonical homepage and mark its anchor with `nav-home` for JS fallback
-                    if (strtolower(trim($row_faq_nav->menuName)) === 'home') {
-                      $pagelink = 'index.php?pageid=2';
-                      if ($aClass) { $aClass .= ' nav-home'; } else { $aClass = 'nav-home'; }
-                    }
                     ?>
                     <li class="<?php echo $liClass ?>"><a href="<?php echo $baseUrl . $pagelink ?>" class="<?php echo $aClass ?>"><?php echo ucfirst($row_faq_nav->menuName) ?></a></li>
 

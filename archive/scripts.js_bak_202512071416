@@ -60,40 +60,9 @@ window.onload = init();
 	}
 })();
 
-/* Tiny fallback: if nav/home or contact anchors lack usable hrefs, route to canonical pages.
-	 Only affects anchors with classes `nav-home` or `btn-contact` to avoid touching modals or other links. */
-(function(){
-	var HOME = CANONICAL_HOME;
-	var CONTACT = CANONICAL_CONTACT;
-	document.addEventListener('click', function(e){
-		try{
-			var a = e.target && e.target.closest && e.target.closest('a');
-			if(!a) return;
-			if(a.classList && a.classList.contains('btn-contact')){
-				var href = a.getAttribute('href') || '';
-				if(!href || href.trim() === '#'){
-					e.preventDefault();
-					window.location.href = CONTACT;
-				}
-			}
-			if(a.classList && a.classList.contains('nav-home')){
-				var href = a.getAttribute('href') || '';
-				if(!href || href.indexOf('C:/') !== -1 || href.indexOf('file:///') !== -1){
-					e.preventDefault();
-					window.location.href = HOME;
-				}
-			}
-		}catch(err){/* noop */}
-	});
-})();
-
-/* Canonical URLs — keep in one place for JS fallbacks */
-var CANONICAL_HOME = 'index.php?pageid=2';
-var CANONICAL_CONTACT = 'Contact.html';
-
 /* Hero CTA Button Handlers
-	- Book a Free Demo: opens WhatsApp in new tab
-	- Contact Us: navigates to Contact page
+   - Book a Free Demo: opens WhatsApp in new tab
+   - Contact Us: navigates to Contact page
 */
 document.addEventListener('click', function(e) {
 	var demo = e.target.closest && e.target.closest('.btn-demo');
@@ -105,7 +74,7 @@ document.addEventListener('click', function(e) {
 	
 	var contact = e.target.closest && e.target.closest('.btn-contact');
 	if (contact) {
-		window.location.href = CANONICAL_CONTACT;
+		window.location.href = 'Contact.html';
 		e.preventDefault();
 		return;
 	}
@@ -144,10 +113,10 @@ document.addEventListener('click', function(e) {
 				// If element looks like Contact, go to canonical Contact page
 				var isContact = (el.classList && el.classList.contains('btn-contact')) || /contact/i.test(rawHref+resolvedHref);
 				if(isContact){
-					window.location.href = CANONICAL_CONTACT;
+					window.location.href = 'Contact.html';
 				} else {
 					// safe fallback to canonical homepage
-					window.location.href = CANONICAL_HOME;
+					window.location.href = 'index.php?pageid=2';
 				}
 			}
 		}catch(e){
