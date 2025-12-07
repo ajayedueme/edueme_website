@@ -1,13 +1,3 @@
-<?php
-if (!isset($baseUrl)) {
-  $baseUrl = rtrim(str_replace('\\','/', dirname($_SERVER['SCRIPT_NAME'])), '/');
-  if ($baseUrl === '' || $baseUrl === '.') {
-    $baseUrl = '/';
-  } else {
-    $baseUrl = $baseUrl . '/';
-  }
-}
-?>
 <div class="footer-sec-2">
   <div class="wrapper">
     <div class="footer-section">
@@ -34,7 +24,7 @@ if (!isset($baseUrl)) {
               $pagelink = 'Services.html';
             }
             ?>
-          <li><a href="<?php echo $baseUrl . $pagelink ?>"><?php echo $row_faq_nav_footer->menuName ?></a></li>
+          <li><a href="<?php echo $pagelink ?>""><?php echo $row_faq_nav_footer->menuName ?></a></li>
         <?php } ?>
           <!-- <li><a href="Services.html">Services</a></li>
           <li><a href="Courses.html">Courses</a></li>

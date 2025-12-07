@@ -20,16 +20,16 @@
       <div class="wrapper">
         <div class="tz-t1">
           <div class="tz-r1">
-            <div class="tz-c1"><a class="logoOuter" href="index.php?pageid=2"><img src="images/logo.png" class="logo-div" alt="logo" width="170" /></a></div>
+            <div class="tz-c1"><a class="logoOuter" href="index.html"><img src="images/logo.png" class="logo-div" alt="logo" width="170" /></a></div>
             <div class="tz-c1">
               <div class="nav-main">
                 <div class="nav-button22"></div>
                 <nav>
                   <ul>
-                    <li><a href="index.php?pageid=2">Home</a></li>
-                    <li><a href="About.html">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html" class="active">About</a></li>
                     <li><a href="Services.html">Services</a></li>
-                    <li><a href="Courses.html" class="active">Courses</a></li>
+                    <li><a href="Courses.html">Courses</a></li>
                     <li><a href="Events.html">Events</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                     <li><a href="under-maintenance.html" class="active-2">Shop NOW</a></li>
@@ -46,65 +46,108 @@
 <!--Banner Start-->
 <div class="inner-banner-main">
   <div class="heading-banner-1">
-    <h1>Courses</h1>
+    <h1>About US</h1>
     <div class="clear-fix"></div>
-    <div class="breadcrumb"> <a href="index.php?pageid=2">Home</a> <a href="Courses.html"><img src="images/bullet-3.svg">Courses</a> <a href="#"><img src="images/bullet-3.svg">Artificial intelligence with python</a> </div>
+    <div class="breadcrumb"> <a href="index.html">Home</a> <a href="#"><img src="images/bullet-3.svg"> About US</a> </div>
   </div>
   <img src="images/courses-banner.jpg" alt="about-banner" class="img-height-1">
   <div class="inner-banner-strip"><img src="images/banner-strip-1.png" alt="banner-strip"></div>
 </div>
 <div class="about-sec-1 text-style-1">
   <div class="wrapper text-style-1">
-    <div class="courses-inner-wrap">
-      <div class="courses-inner-1">
-        <div class="courses-box-1">
-          <h3>What you will learn:</h3>
-          <ul>
-            <li>Build intelligent systems and algorithms using Python programming language.</li>
-            <li>Understand the ethical implications of AI and develop a responsible approach to designing and deploying intelligent systems.</li>
-            <li>Understand the basics of machine learning and deep learning and how they can be applied to solve real-world problems.</li>
-            <li>Work on real-world projects and build a portfolio of AI projects to showcase their skills to potential employers or universities.</li>
-          </ul>
+    <div class="about-sec-1-1"> <img src="images/about-img-2.png" alt="about-img">
+      <h6>About</h6>
+      <h2>EDUEME Research Labs</h2>
+      <p> The pace of technical development in the modern world is accelerating more quickly than before. Adaptation and the acquisition of new competencies and skills are crucial in this continuously changing world. All citizens—young and old—are impacted by the advancement of digital technology and the digitalization of society. </p>
+      <p>Everyday life is greatly influenced by the use of mobile phones, laptops, tablets, and other technologies that serve both social and entertainment purposes. For everyone to be able to engage the digital generation in the educational process, they must learn to adapt to a changing world and build their digital competencies.</p>
+      <p>Our future generation is now in need to learn about these machines to be future ready, same like in the past where Indian Schools between 1970 and 1990 used to have Occupational Courses for their students to be ready for 21st century. We at Edueme take extensive care of providing Work-Oriented learning opportunities to our students to make them ready for 2nd half of 21st century. </p>
+      <p>Our team includes research scientists, innovators, Physicists, who has extensive knowledge and rich experience in the areas of Robotics, Mechanical Design, Machine Learning, Artificial Intelligence. We are the first in India to introduce component based robotics from 3rd standard. </p>
+    </div>
+    <div class="fss-3-subsection">
+      <div class="fss-3-1">
+        <div class="fss-3-card">
+          <div class="fss-3-card-img"> <img src="images/student-icon.png" alt="Awesome Teachers"> </div>
+          <div class="fss-3-card-content">
+            <h4>10,000+</h4>
+            <p>Students Enrolled</p>
+          </div>
         </div>
-        <div class="courses-box-1">
-          <h3>Course Overview </h3>
-          <p>This course is designed to introduce young learners to the fascinating world of AI and machine learning using the popular programming language, Python. By the end of the course, students will have a foundational understanding of how AI works and how to create basic AI applications using Python.
- </p>
+        <div class="fss-3-card">
+          <div class="fss-3-card-img"> <img src="images/teachers.png" alt="Awesome Teachers"> </div>
+          <div class="fss-3-card-content">
+            <h4>75+</h4>
+            <p>Teachers</p>
+          </div>
         </div>
-        <div class="courses-box-1">
-          <h3>Why Artificial intelligence?</h3>
-          <p>Artificial intelligence (AI) is becoming more and more important today and will do so in the future. Young people can therefore better prepare for professions in a rapidly changing environment by learning about AI and its applications.
-</p>
-          <p>Learning about AI can be an excellent opportunity for young people to develop valuable skills and prepare themselves for the future.
-</p>
+        <div class="fss-3-card">
+          <div class="fss-3-card-img"> <img src="images/Universities-icon.png" alt="Awesome Teachers"> </div>
+          <div class="fss-3-card-content">
+            <h4>50+</h4>
+            <p>Schools Registered </p>
+          </div>
         </div>
-        <div class="courses-box-1">
-          <h3>Course Highlights:</h3>
-          <ul>
-            <li>Beginner Friendly</li>
-            <li>High Quality Training</li>
-            <li>Project development skill</li>
-            <li>Gain excellent technical skills </li>
-            <li>Training Certificate</li>
-          </ul>
+        <div class="fss-3-card">
+          <div class="fss-3-card-img"> <img src="images/courses.png" alt="Awesome Teachers"> </div>
+          <div class="fss-3-card-content">
+            <h4>30+</h4>
+            <p>courses</p>
+          </div>
         </div>
-        <div class="courses-box-1">
-          <h3>Who this course is for:</h3>
-          <p>Artificial Intelligence is a captivating field that is appropriate for all ages, including 3rd to 10th graders. Learning about AI at a young age can help develop valuable skills, such as critical thinking and problem-solving, and prepare them for future career opportunities in a world that relies on technology. Encouraging students to explore the topic of AI can spark their interest and curiosity in technology.
-</p>
-        </div>
-      </div>
-      <div class="courses-inner-2">
-        <div class="c-three-card-1">
-          <div class="n-three-card-img"><img src="images/Artificial-intelligence-with-python.png"></div>
-              <div class="n-three-date"><img src="images/calender-icon-1.png" alt="calender"> Starts at 10 March, 2023</div>
-              <h4>Artificial intelligence with python</h4>
-          <a href="Robotics-with-embedded.html" class="button-2">Enroll now</a> </div>
       </div>
     </div>
   </div>
 </div>
-<div class="footer-sec-1"><img src="images/footer-bg-1_102.png" alt="footer"></div>
+<div class="about-sec-2">
+  <div class="wrapper">
+    <h6>Innovators</h6>
+    <h2>Helping 4M  students find their inner expertise and become the leaders and innovators of tomorrow.</h2>
+    <p>At Edueme, we offered designed courses to provide students with hands-on experience in robotics, enabling them to develop the practical skills necessary to construct their own innovative ideas.</p>
+    <ul id="toppic_1">
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-1.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-2.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-3.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-4.png" alt=""> </div>
+      </li>
+        
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-5.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-6.png" alt=""> </div>
+      </li>
+        
+        
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-1.png" alt=""> </div>
+      </li>
+        <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-2.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-3.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-4.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-5.png" alt=""> </div>
+      </li>
+      <li>
+        <div class="home-buynow-box"> <img src="images/about-scroll-6.png" alt=""> </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="footer-sec-1 footer-gray-bg-1"><img src="images/footer-bg-1_102.png" alt="footer"></div>
 <div class="footer-sec-2">
   <div class="wrapper">
     <div class="footer-section">
