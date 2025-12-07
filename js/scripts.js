@@ -79,3 +79,48 @@ document.addEventListener('click', function(e) {
 		return;
 	}
 });
+
+/* Mobile-safe fallback: block navigation to file: and windows-drive paths
+	 - Intercepts clicks in capture phase so other handlers see cleaned URLs
+	 - If an unsafe URL is detected, redirect to `Contact.html` when intent
+		 appears to be a Contact CTA, otherwise fall back to homepage.
+*/
+(function(){
+	function isUnsafeHref(rawHref, resolvedHref){
+		if(!rawHref && !resolvedHref) return false;
+		rawHref = rawHref || '';
+		resolvedHref = resolvedHref || '';
+		// raw attribute could be like "C:\path\file" or "file:///C:/..."
+		if (/^file:/i.test(rawHref) || /^file:/i.test(resolvedHref)) return true;
+		if (/^[A-Za-z]:[\\\/]/.test(rawHref)) return true;
+		// also guard against accidental back-end windows path included in absolute resolved href
+		if (/file:\/\//i.test(resolvedHref)) return true;
+		return false;
+	}
+
+	document.addEventListener('click', function(ev){
+		try{
+			var el = ev.target && ev.target.closest && ev.target.closest('a, [data-href], .link-2, .fss-card, .btn-contact');
+			if(!el) return;
+
+			var rawHref = el.getAttribute && (el.getAttribute('href') || el.dataset && el.dataset.href) || '';
+			// resolvedHref uses the element's href property when available (absolute URL), fall back to raw
+			var resolvedHref = el.href || rawHref || '';
+
+			if(isUnsafeHref(rawHref, resolvedHref)){
+				ev.preventDefault();
+				ev.stopImmediatePropagation();
+				// If element looks like Contact, go to canonical Contact page
+				var isContact = (el.classList && el.classList.contains('btn-contact')) || /contact/i.test(rawHref+resolvedHref);
+				if(isContact){
+					window.location.href = 'Contact.html';
+				} else {
+					// safe fallback to canonical homepage
+					window.location.href = 'index.php?pageid=2';
+				}
+			}
+		}catch(e){
+			// swallow errors to avoid breaking other click handlers
+		}
+	}, true);
+})();
