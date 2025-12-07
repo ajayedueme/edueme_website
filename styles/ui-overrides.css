@@ -87,8 +87,19 @@ body{
 }
 .banner-img-1{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
 @media (max-width:920px){ .banner-img-1{grid-template-columns:1fr;gap:18px;padding:28px 0} }
+@media (max-width:768px){ .banner-img-1{grid-template-columns:1fr;gap:12px;padding:24px 0;order:1} }
+
+/* Left column: text and buttons container */
+.bc-1{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-start;
+  width:100%;
+}
+
 .bc-1 h3{font-size:2.2rem;margin:0 0 10px;color:#04261f}
-.bc-1 p{color:var(--muted);max-width:620px}
+.bc-1 p{color:var(--muted);max-width:620px;margin-bottom:16px}
 
 /* Hero image */
 .bi-1{display:flex;align-items:center;justify-content:center}
@@ -122,6 +133,78 @@ body{
 /* Footer */
 .footer-sec-2{padding:36px 0 18px;background:linear-gradient(180deg,#04241f,#032017);color:#e6f7f3}
 .copy-right{background:#021812;color:#9ee4d0;padding:12px;text-align:center;font-size:14px}
+
+/* Hero CTA Buttons - modern styling with smooth hover effects */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border: none;
+  cursor: pointer;
+  margin-right: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  will-change: transform, box-shadow, background;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hero-btn:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn-contact {
+  background: #00c48c;
+  color: #fff;
+}
+
+.btn-contact:hover {
+  background: #00a570;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-contact:active {
+  background: #008b5c;
+}
+
+.btn-demo {
+  background: #0b1d39;
+  color: #fff;
+}
+
+.btn-demo:hover {
+  background: #162a4d;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-demo:active {
+  background: #0a1525;
+}
+
+/* Responsive button spacing on smaller screens */
+@media (max-width: 640px) {
+  .hero-btn {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 12px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero-btn:last-child {
+    margin-bottom: 0;
+  }
+}
 
 /* Utilities */
 .text-center-1{text-align:center}

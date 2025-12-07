@@ -59,3 +59,23 @@ window.onload = init();
 		revealEls.forEach(function(el){ el.classList.add('is-visible'); });
 	}
 })();
+
+/* Hero CTA Button Handlers
+   - Book a Free Demo: opens WhatsApp in new tab
+   - Contact Us: navigates to Contact page
+*/
+document.addEventListener('click', function(e) {
+	var demo = e.target.closest && e.target.closest('.btn-demo');
+	if (demo) {
+		window.open('https://wa.me/9059508050?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20robotics%20%2F%20AI%20classes.', '_blank');
+		e.preventDefault();
+		return;
+	}
+	
+	var contact = e.target.closest && e.target.closest('.btn-contact');
+	if (contact) {
+		window.location.href = '/mywebsite/Contact.html';
+		e.preventDefault();
+		return;
+	}
+});
