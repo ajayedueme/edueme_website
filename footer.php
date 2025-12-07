@@ -18,6 +18,11 @@
           }else{
                 $pagelink="$row_faq_nav_footer->menuSulg?pageid=$row_faq_nav_footer->menuId";
           }
+            // If this menu item is the 'Services' catalogue, link to the static
+            // Services.html page so the service popups work correctly.
+            if (strtolower(trim($row_faq_nav_footer->menuName)) === 'services') {
+              $pagelink = 'Services.html';
+            }
             ?>
           <li><a href="<?php echo $pagelink ?>""><?php echo $row_faq_nav_footer->menuName ?></a></li>
         <?php } ?>

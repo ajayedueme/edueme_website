@@ -1,7 +1,14 @@
 
+
 RewriteEngine on
+
+# Redirect old static index.html to canonical dynamic homepage with pageid parameter
+RewriteRule ^index\.html$ index.php?pageid=2 [R=301,L]
+
+# Redirect to HTTPS and www
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
 RewriteCond %{HTTP_HOST} ^eduemeresearchlabs\.com$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.eduemeresearchlabs\.com$
 RewriteRule ^/?$ "https\:\/\/www\.eduemeresearchlabs\.com\/" [R=301,L]
+
