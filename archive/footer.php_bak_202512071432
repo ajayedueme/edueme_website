@@ -34,11 +34,7 @@ if (!isset($baseUrl)) {
               $pagelink = 'Services.html';
             }
             ?>
-          <?php if (strtolower(trim($row_faq_nav_footer->menuName)) === 'contact') { ?>
-            <li><a href="<?php echo $baseUrl; ?>Contact.html"><?php echo $row_faq_nav_footer->menuName ?></a></li>
-          <?php } else { ?>
-            <li><a href="<?php echo $baseUrl . $pagelink ?>"><?php echo $row_faq_nav_footer->menuName ?></a></li>
-          <?php } ?>
+          <li><a href="<?php echo $baseUrl . $pagelink ?>"><?php echo $row_faq_nav_footer->menuName ?></a></li>
         <?php } ?>
           <!-- <li><a href="Services.html">Services</a></li>
           <li><a href="Courses.html">Courses</a></li>

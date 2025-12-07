@@ -206,25 +206,6 @@ body{
   }
 }
 
-/* Small scoped hero CTA alignment helper to keep hero CTAs consistent
-   across raw file:// views and http views. Apply `.hero-cta-fix` to the
-   wrapper around hero buttons (e.g. the `.bc-1` buttons container). */
-.hero-cta-fix{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.hero-cta-fix .hero-btn{
-  min-width:160px;
-  padding:12px 22px;
-}
-@media (max-width:640px){
-  .hero-cta-fix{flex-direction:column;align-items:stretch}
-  .hero-cta-fix .hero-btn{width:100%;min-width:0}
-}
-
 /* Utilities */
 .text-center-1{text-align:center}
 .small-muted{color:var(--muted);font-size:.95rem}

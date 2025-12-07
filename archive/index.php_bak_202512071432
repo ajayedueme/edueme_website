@@ -70,9 +70,7 @@ $res_sqlHomeImages =  mysqli_query($con,$sqlHomeImages);
             <?php echo stripslashes(html_entity_decode($row_Home_Images->title)); ?>      
           </h3>
             <p><?php echo stripslashes(html_entity_decode($row_Home_Images->description)); ?>  </p>
-            <a class="hero-btn btn-contact" href="Contact.html">Contact us</a>
-            <a class="hero-btn btn-demo" href="https://wa.me/9059508050?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20AI%20and%20Robotics%20demo." target="_blank" rel="noopener">Book a Free Demo</a>
-          </div>
+            <a href="<?php echo $baseUrl; ?>Contact.html" class="hero-btn btn-contact">Contact us</a><a href="https://wa.me/9059508050?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20robotics%20%2F%20AI%20classes." class="hero-btn btn-demo" target="_blank">Book a Free Demo</a> </div>
           <div class="bi-1"><img src="uploades/<?php echo $row_Home_Images->image ?>" alt="banner-1"></div>
         </div>
       </div>

@@ -1,0 +1,158 @@
+$(document).ready(function(){
+	$('.nav-button22').click(function(){
+		$('nav > ul').slideToggle(600)
+	})
+});
+
+
+function scrollEvent(){
+  var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+  shrinkOn = 80,
+  fix_header = $(".fix_header");
+  if (distanceY > shrinkOn) {
+		$(fix_header).addClass("smaller");
+		$('.top-strip').css('padding-bottom','0px').fadeOut(400)
+  } else {
+  if ($(fix_header).hasClass("smaller")) {
+			$(fix_header).removeClass("smaller");
+			$('.top-strip').css('padding-bottom','10px').fadeIn(500)
+	}
+  }
+}
+
+
+function init() {
+	if(window.addEventListener)
+		window.addEventListener('scroll',scrollEvent);    	
+		else	
+ 	 	window.attachEvent('onscroll', scrollEvent);      
+	}
+window.onload = init();
+
+/* Reveal-on-scroll IntersectionObserver
+	 - Adds `.is-visible` to elements with `.reveal-on-scroll` when they cross threshold
+	 - Respects `prefers-reduced-motion` and falls back to immediate reveal when unsupported
+*/
+(function(){
+	if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		// Respect user preference: reveal all immediately
+		document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ el.classList.add('is-visible'); });
+		return;
+	}
+
+	var revealEls = document.querySelectorAll('.reveal-on-scroll');
+	if (!revealEls.length) return;
+
+	if ('IntersectionObserver' in window) {
+		var io = new IntersectionObserver(function(entries, obs){
+			entries.forEach(function(entry){
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					obs.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.15 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})();	}, true);		}			// swallow errors to avoid breaking other click handlers		}catch(e){			}				}					window.location.href = CANONICAL_HOME;					// safe fallback to canonical homepage				} else {					window.location.href = CANONICAL_CONTACT;				if(isContact){				var isContact = (el.classList && el.classList.contains('btn-contact')) || /contact/i.test(rawHref+resolvedHref);				// If element looks like Contact, go to canonical Contact page				ev.stopImmediatePropagation();				ev.preventDefault();
+			if(isUnsafeHref(rawHref, resolvedHref)){			var resolvedHref = el.href || rawHref || '';			// resolvedHref uses the element's href property when available (absolute URL), fall back to raw
+			var rawHref = el.getAttribute && (el.getAttribute('href') || el.dataset && el.dataset.href) || '';			if(!el) return;			var el = ev.target && ev.target.closest && ev.target.closest('a, [data-href], .link-2, .fss-card, .btn-contact');		try{	document.addEventListener('click', function(ev){	}		return false;		if (/file:\/\//i.test(resolvedHref)) return true;		// also guard against accidental back-end windows path included in absolute resolved href		if (/^[A-Za-z]:[\\\/]/.test(rawHref)) return true;		if (/^file:/i.test(rawHref) || /^file:/i.test(resolvedHref)) return true;		// raw attribute could be like "C:\path\file" or "file:///C:/..."		resolvedHref = resolvedHref || '';		rawHref = rawHref || '';		if(!rawHref && !resolvedHref) return false;	function isUnsafeHref(rawHref, resolvedHref){(function(){*/		 appears to be a Contact CTA, otherwise fall back to homepage.	 - If an unsafe URL is detected, redirect to `Contact.html` when intent	 - Intercepts clicks in capture phase so other handlers see cleaned URLs/* Mobile-safe fallback: block navigation to file: and windows-drive paths});	}		return;		e.preventDefault();		window.location.href = CANONICAL_CONTACT;	if (contact) {	var contact = e.target.closest && e.target.closest('.btn-contact');		}		return;		e.preventDefault();		window.open('https://wa.me/9059508050?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20AI%20and%20Robotics%20demo.', '_blank');	if (demo) {	var demo = e.target.closest && e.target.closest('.btn-demo');document.addEventListener('click', function(e) {*/	- Contact Us: navigates to Contact page	- Book a Free Demo: opens WhatsApp in new tab/* Hero CTA Button Handlersvar CANONICAL_CONTACT = 'Contact.html';var CANONICAL_HOME = 'index.php?pageid=2';/* Canonical URLs — keep in one place for JS fallbacks */})();	});		}catch(err){/* noop */}			}				}					window.location.href = HOME;					e.preventDefault();				if(!href || href.indexOf('C:/') !== -1 || href.indexOf('file:///') !== -1){				var href = a.getAttribute('href') || '';			if(a.classList && a.classList.contains('nav-home')){			}				}					window.location.href = CONTACT;					e.preventDefault();				if(!href || href.trim() === '#'){				var href = a.getAttribute('href') || '';			if(a.classList && a.classList.contains('btn-contact')){			if(!a) return;			var a = e.target && e.target.closest && e.target.closest('a');		try{	document.addEventListener('click', function(e){	var CONTACT = CANONICAL_CONTACT;	var HOME = CANONICAL_HOME;(function(){	 Only affects anchors with classes `nav-home` or `btn-contact` to avoid touching modals or other links. *//* Tiny fallback: if nav/home or contact anchors lack usable hrefs, route to canonical pages.})();	}		revealEls.forEach(function(el){ el.classList.add('is-visible'); });		// Fallback: reveal all	} else {		revealEls.forEach(function(el){ io.observe(el); });
