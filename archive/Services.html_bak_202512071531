@@ -103,13 +103,13 @@
                 <div class="nav-button22"></div>
                 <nav>
                   <ul>
-                    <li><a href="index.php?pageid=2">Home</a></li>
-                    <li><a href="about.php?pageid=3">About</a></li>
-                    <li><a href="pages.php?mid=4" class="active">Services</a></li>
-                    <li><a href="courses.php?pageid=5">Courses</a></li>
-                    <li><a href="pages.php?mid=6">Events</a></li>
-                    <li><a href="contact.php?pageid=7">Contact</a></li>
-                    <li><a href="https://eduemeresearchlabs.com/shop" class="active-2">Shop NOW</a></li>
+                    <li><a href="/mywebsite/index.php?pageid=2">Home</a></li>
+                    <li><a href="/mywebsite/About.html">About</a></li>
+                    <li><a href="/mywebsite/Services.html" class="active">Services</a></li>
+                    <li><a href="/mywebsite/Courses.html">Courses</a></li>
+                    <li><a href="/mywebsite/Events.html">Events</a></li>
+                    <li><a href="/mywebsite/Contact.html">Contact</a></li>
+                    <li><a href="/mywebsite/under-maintenance.html" class="active-2">Shop NOW</a></li>
                   </ul>
                 </nav>
               </div>
@@ -126,10 +126,8 @@
     <h1>Services</h1>
       <div class="clear-fix"></div>
       <div class="breadcrumb">
-          <a href="index.php?pageid=2">Home</a>
-          <a href="pages.php?mid=4">
-         <img src="images/bullet-3.svg"> Services
-      </a>
+          <a href="#">Home</a>
+          <a href="#"><img src="images/bullet-3.svg">Services</a>
       </div>
   </div>
   <img src="images/courses-banner.jpg" alt="about-banner" class="img-height-1"/>

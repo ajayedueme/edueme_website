@@ -31,11 +31,17 @@ if (!isset($baseUrl)) {
             // If this menu item is the 'Services' catalogue, link to the static
             // Services.html page so the service popups work correctly.
             if (strtolower(trim($row_faq_nav_footer->menuName)) === 'services') {
-              $pagelink = 'Services.html';
+              $pagelink = 'pages.php?mid=4';
+            }
+            if (strtolower(trim($row_faq_nav_footer->menuName)) === 'events') {
+              $pagelink = 'pages.php?mid=6';
+            }
+            if (strtolower(trim($row_faq_nav_footer->menuName)) === 'courses') {
+              $pagelink = 'courses.php?pageid=5';
             }
             ?>
           <?php if (strtolower(trim($row_faq_nav_footer->menuName)) === 'contact') { ?>
-            <li><a href="<?php echo $baseUrl; ?>Contact.html"><?php echo $row_faq_nav_footer->menuName ?></a></li>
+            <li><a href="<?php echo $baseUrl; ?>contact.php?pageid=7"><?php echo $row_faq_nav_footer->menuName ?></a></li>
           <?php } else { ?>
             <li><a href="<?php echo $baseUrl . $pagelink ?>"><?php echo $row_faq_nav_footer->menuName ?></a></li>
           <?php } ?>

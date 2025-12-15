@@ -119,7 +119,7 @@ $sel_menu_get_row_fetch_res = mysqli_fetch_object($sel_menu_get_row_fetch);
     <h1><?php echo ucfirst($sel_menu_get_row_fetch_res->menuName)  ?></h1>
       <div class="clear-fix"></div>
       <div class="breadcrumb">
-          <a href="#">Home</a>
+          <a href="index.php?pageid=2">Home</a>
           <a href="#"><img src="images/bullet-3.svg"><?php echo ucfirst($sel_menu_get_row_fetch_res->menuName)  ?></a>
       </div>
   </div>

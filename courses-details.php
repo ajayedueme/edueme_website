@@ -59,7 +59,7 @@ $res_faq_get_fetch = mysqli_fetch_object($res_faq_get);
   <div class="heading-banner-1">
     <h1>Courses</h1>
     <div class="clear-fix"></div>
-    <div class="breadcrumb"> <a href="index.php?pageid=2">Home</a> <a href="Courses.html"><img src="images/bullet-3.svg">Courses</a> <a href="#"><img src="images/bullet-3.svg"><?php echo stripslashes(html_entity_decode($res_faq_get_fetch->courses_name)) ?></a> </div>
+    <div class="breadcrumb"> <a href="index.php?pageid=2">Home</a> <a href="courses.php?pageid=5"><img src="images/bullet-3.svg">Courses</a> <a href="#"><img src="images/bullet-3.svg"><?php echo stripslashes(html_entity_decode($res_faq_get_fetch->courses_name)) ?></a> </div>
   </div>
   <img src="images/courses-banner.jpg" alt="about-banner" class="img-height-1">
   <div class="inner-banner-strip"><img src="images/banner-strip-1.png" alt="banner-strip"></div>

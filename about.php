@@ -50,14 +50,14 @@ $sel_menu_get_row_fetch_res = mysqli_fetch_object($sel_menu_get_row_fetch);
         <div class="fss-3-card">
           <div class="fss-3-card-img"> <img src="images/student-icon.png" alt="Awesome Teachers"> </div>
           <div class="fss-3-card-content">
-            <h4>75+</h4>
+            <h4>12000+</h4>
             <p>Students Enrolled</p>
           </div>
         </div>
         <div class="fss-3-card">
           <div class="fss-3-card-img"> <img src="images/teachers.png" alt="Awesome Teachers"> </div>
           <div class="fss-3-card-content">
-            <h4>100+</h4>
+            <h4>75+</h4>
             <p>Teachers</p>
           </div>
         </div>

@@ -36,7 +36,19 @@ if (!isset($baseUrl)) {
                       // If this menu item is the 'Services' catalogue, link to the static
                       // Services.html page so the service popups work correctly.
                       if (strtolower(trim($row_faq_nav->menuName)) === 'services') {
-                      $pagelink = 'Services.html';
+                      $pagelink = 'pages.php?mid=4';
+                      }
+                      if (strtolower(trim($row_faq_nav->menuName)) === 'events') {
+                      $pagelink = 'pages.php?mid=6';
+                      }
+                      if (strtolower(trim($row_faq_nav->menuName)) === 'courses') {
+                      $pagelink = 'courses.php?pageid=5';
+                      }
+                      if (strtolower(trim($row_faq_nav->menuName)) === 'contact') {
+                      $pagelink = 'contact.php?pageid=7';
+                      }
+                      if (strtolower(trim($row_faq_nav->menuName)) === 'about') {
+                      $pagelink = 'about.php?pageid=3';
                       }
                     // determine active state: by menuId/pageid, fallback to Home when no pageid,
                     // and also allow pages to set $page (e.g. $page='contact') to match menuName
@@ -66,7 +78,7 @@ if (!isset($baseUrl)) {
                     <li><a href="Events.html">Events</a></li>
                     <li><a href="Contact.html">Contact</a></li> -->
                     <li class="<?php echo ($page=='shop' ? 'active' : ''); ?> ctawrap">
-                      <a href="<?php echo $baseUrl; ?>under-maintenance.php" class="nav-link <?php echo ($page=='shop' ? 'active' : ''); ?> cta-shop">Shop NOW</a>
+                      <a href="https://eduemeresearchlabs.com/shop" class="nav-link <?php echo ($page=='shop' ? 'active' : ''); ?> cta-shop">Shop NOW</a>
                     </li>
                   </ul>
                 </nav>

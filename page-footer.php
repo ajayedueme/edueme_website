@@ -34,7 +34,7 @@ $sel_menu_get_row_fetch_res = mysqli_fetch_object($sel_menu_get_row_fetch);
   <div class="heading-banner-1">
     <h1><?php echo ucfirst($sel_menu_get_row_fetch_res->menuName)  ?></h1>
     <div class="clear-fix"></div>
-    <div class="breadcrumb"> <a href="index.php">Home</a> <a href="#"><img src="images/bullet-3.svg"> <?php echo ucfirst($sel_menu_get_row_fetch_res->menuName)  ?></a> </div>
+    <div class="breadcrumb"> <a href="index.php?pageid=2">Home</a> <a href="#"><img src="images/bullet-3.svg"> <?php echo ucfirst($sel_menu_get_row_fetch_res->menuName)  ?></a> </div>
   </div>
   <img src="images/courses-banner.jpg" alt="about-banner" class="img-height-1">
   <div class="inner-banner-strip"><img src="images/banner-strip-1.png" alt="banner-strip"></div>

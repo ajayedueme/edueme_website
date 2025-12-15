@@ -111,7 +111,7 @@ $res_faq =  mysqli_query($con,$sqlfaq);
   <div class="heading-banner-1">
     <h1>Courses</h1>
     <div class="clear-fix"></div>
-    <div class="breadcrumb"> <a href="#">Home</a> <a href="#"><img src="images/bullet-3.svg">Courses</a> </div>
+    <div class="breadcrumb"> <a href="index.php?pageid=2">Home</a> <a href="#"><img src="images/bullet-3.svg">Courses</a> </div>
   </div>
   <img src="images/courses-banner.jpg" alt="about-banner" class="img-height-1"/>
   <div class="inner-banner-strip"><img src="images/banner-strip-1.png" alt="banner-strip"></div>
