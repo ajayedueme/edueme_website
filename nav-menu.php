@@ -78,7 +78,7 @@ if (!isset($baseUrl)) {
                     <li><a href="Events.html">Events</a></li>
                     <li><a href="Contact.html">Contact</a></li> -->
                     <li class="<?php echo ($page=='shop' ? 'active' : ''); ?> ctawrap">
-                      <a href="https://eduemeresearchlabs.com/shop" class="nav-link <?php echo ($page=='shop' ? 'active' : ''); ?> cta-shop">Shop NOW</a>
+                      <a href="under-maintenance.php" class="nav-link <?php echo ($page=='shop' ? 'active' : ''); ?> cta-shop">Shop NOW</a>
                     </li>
                   </ul>
                 </nav>

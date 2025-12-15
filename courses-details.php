@@ -43,7 +43,7 @@ $res_faq_get_fetch = mysqli_fetch_object($res_faq_get);
                     <li><a href="Courses.html" class="active">Courses</a></li>
                     <li><a href="Events.html">Events</a></li>
                     <li><a href="Contact.html">Contact</a></li>
-                    <li><a href="under-maintenance.html" class="active-2">Shop NOW</a></li>
+                    <li><a href="under-maintenance.php" class="active-2">Shop NOW</a></li>
                   </ul>
                 </nav>
               </div>

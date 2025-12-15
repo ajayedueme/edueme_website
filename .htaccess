@@ -5,6 +5,9 @@ RewriteEngine on
 # Redirect old static index.html to canonical dynamic homepage with pageid parameter
 RewriteRule ^index\.html$ index.php?pageid=2 [R=301,L]
 
+# Redirect shop to under maintenance
+RewriteRule ^shop$ under-maintenance.php [L]
+
 # Redirect to HTTPS and www
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
